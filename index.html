@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tareas</title>
+</head>
+<body>
+    
+    <header>
+        <h1>ToDo Life</h1>
+    </header>
+    <main>
+        
+        <form name="taskForm">
+            
+            <input type="text" maxlength="20" placeholder="Cual es tu proxima tarea..." name="task"/>
+            
+            
+            <label for="priority">Prioridad</label>
+            <select name="priority">
+                <option value="Normal">Normal</option>
+                <option value="Alta">Alta</option>
+            </select>
+            
+            <button>Añadir</button>
+        </form>
+        
+        <section id="taskList">
+            <h2>Lista de tareas pendientes</h2>
+            <ul>
+                
+            </ul>
+        </section>
+    </main>
+    
+    <script src="./js/src.js"></script>
+</body>
+</html>
