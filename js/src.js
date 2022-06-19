@@ -1,5 +1,7 @@
 "use strict";
 
+import { Task } from "./taskClass.js";
+
 const forms = document.forms.taskForm;
 const inputTask = forms.elements.task;
 const taskPriority = forms.priority;
@@ -25,7 +27,7 @@ if (JSON.parse(localStorage.getItem("tareas"))) {
 
 /* console.log("log de tasks " + tasks.length); */
 
-class Task {
+/* class Task {
   static description = "Esta clase define una tarea";
 
   constructor(name, priority, date, complete) {
@@ -34,7 +36,7 @@ class Task {
     this.date = date;
     this.complete = complete;
   }
-}
+} */
 
 function getDate() {
   const today = new Date();
@@ -55,7 +57,7 @@ function handleSubmitForm(e) {
     new Task(inputTask.value, taskPriority.value, getDate(), complete)
   );
 
-  localStorage.setItem("tareas", JSON.stringify(tasks));
+  saveLocalStorage(tasks);
   printTasks();
 }
 
@@ -69,7 +71,7 @@ function printTasks() {
   button.setAttribute("id", "cleanButton");
   button.innerHTML = `Limpiar`;
 
-  if (taskObj && taskObj.length > 0) {
+  if (taskObj && taskObj.length >= 0) {
     clearList("#taskList > ul");
 
     for (let i = 0; i < taskObj.length; i++) {
@@ -98,6 +100,10 @@ function printTasks() {
     objFra.append(button);
   }
 
+  if (taskObj.length === 0) {
+    button.remove();
+  }
+
   /*   console.log(taskObj);
   console.log(objFra); */
   taskList.append(objFra);
@@ -116,17 +122,7 @@ function handleCrossTask() {
     console.log(event.target);
     console.log(tasks[completedTask.id].complete);
 
-    /*  if (tasks[completedTask.id].complete) {
-      completedTask.classList.remove("toDo");
-      completedTask.classList.add("done");
-    } else {
-      completedTask.classList.remove("done");
-      completedTask.classList.add("toDo");
-    } */
-    /*     console.log("a", event.target);
-    console.log(event.target.classList); */
-
-    localStorage.setItem("tareas", JSON.stringify(tasks));
+    saveLocalStorage(tasks);
 
     printTasks();
   }
@@ -139,7 +135,7 @@ function handleDeleteButton() {
     const filteredTasks = tasks.filter((key) => key.complete === false);
 
     tasks = filteredTasks;
-    localStorage.setItem("tareas", JSON.stringify(filteredTasks));
+    saveLocalStorage(filteredTasks);
     printTasks();
     /*   console.log(filteredTasks);
     console.log(tasks);
@@ -148,3 +144,7 @@ function handleDeleteButton() {
 }
 
 taskList.addEventListener("click", handleDeleteButton);
+
+function saveLocalStorage(array) {
+  localStorage.setItem("tareas", JSON.stringify(array));
+}
