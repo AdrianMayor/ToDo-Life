@@ -6,37 +6,19 @@ const forms = document.forms.taskForm;
 const inputTask = forms.elements.task;
 const taskPriority = forms.priority;
 const taskList = document.querySelector("#taskList > ul");
-// const taskButton = document.querySelector("form > button");
-
-/* inputTask.addEventListener("input", () => {
-  console.log(inputTask.value);
-}); */
-
-/* console.log(forms);
-console.log(inputTask.value);
-console.log(taskPriority.value); */
-
-printTasks();
-//console.log(taskButton);
 
 let tasks = [];
 if (JSON.parse(localStorage.getItem("tareas"))) {
   tasks = JSON.parse(localStorage.getItem("tareas"));
 }
-//const taskJSON = JSON.stringify(tasks);
 
-/* console.log("log de tasks " + tasks.length); */
+printTasks();
 
-/* class Task {
-  static description = "Esta clase define una tarea";
-
-  constructor(name, priority, date, complete) {
-    this.name = name;
-    this.priority = priority;
-    this.date = date;
-    this.complete = complete;
-  }
-} */
+function main() {
+  forms.addEventListener("submit", handleSubmitForm);
+  taskList.addEventListener("click", handleCrossTask);
+  taskList.addEventListener("click", handleDeleteButton);
+}
 
 function getDate() {
   const today = new Date();
@@ -48,7 +30,6 @@ function getDate() {
 }
 
 function handleSubmitForm(e) {
-  //console.log(e);
   e.preventDefault();
 
   const complete = false;
@@ -57,11 +38,10 @@ function handleSubmitForm(e) {
     new Task(inputTask.value, taskPriority.value, getDate(), complete)
   );
 
+  //console.log("estoy entrando en el submity form");
   saveLocalStorage(tasks);
   printTasks();
 }
-
-forms.addEventListener("submit", handleSubmitForm);
 
 function printTasks() {
   const taskObj = JSON.parse(localStorage.getItem("tareas"));
@@ -88,10 +68,7 @@ function printTasks() {
 
       li.setAttribute("id", i);
       li.innerHTML = `${taskObj[i].name}. Prioridad ${taskObj[i].priority}. Añadido el dia ${taskObj[i].date}`;
-      /*       console.log(
-        "Veamos si esta cogiendo bien el obt complete",
-        taskObj[0].complete
-      ); */
+
       if (taskObj[i].complete) {
         li.style.textDecoration = "line-through";
       }
@@ -104,8 +81,6 @@ function printTasks() {
     button.remove();
   }
 
-  /*   console.log(taskObj);
-  console.log(objFra); */
   taskList.append(objFra);
 }
 
@@ -128,8 +103,6 @@ function handleCrossTask() {
   }
 }
 
-taskList.addEventListener("click", handleCrossTask);
-
 function handleDeleteButton() {
   if (event.target.matches("ul #cleanButton")) {
     const filteredTasks = tasks.filter((key) => key.complete === false);
@@ -137,14 +110,11 @@ function handleDeleteButton() {
     tasks = filteredTasks;
     saveLocalStorage(filteredTasks);
     printTasks();
-    /*   console.log(filteredTasks);
-    console.log(tasks);
-    console.log(filteredTasks); */
   }
 }
-
-taskList.addEventListener("click", handleDeleteButton);
 
 function saveLocalStorage(array) {
   localStorage.setItem("tareas", JSON.stringify(array));
 }
+
+main();
