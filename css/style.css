@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Teko:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+
+}
+
+
+
+body {
+    display: flex;
+    flex-direction: column; 
+    text-align: center;
+    font-family:'Teko', sans-serif;
+    color: #4C5175;
+    background-color: #B7C8CB; 
+}
+
+h1{
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+h2{
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+#input {
+    font-family:'Teko', sans-serif;
+    font-size: 16px;
+    font-weight: 550;
+    letter-spacing: 0.2px;
+    text-transform:capitalize;
+    border-radius: 30px;
+    border-style: none;
+    outline:#4C5175;
+    padding: 0.20rem;
+}
+
+#label {
+    border-style: none;
+    font-family:'Teko', sans-serif;
+    font-size: 18px;
+    font-weight: 550;
+    letter-spacing: 0.2px;
+    text-align: center;
+    border-radius: 15px;
+   
+    
+}
+
+ul {
+    font-size: 13px;
+    font-weight: 550;
+    letter-spacing: 0.2px;
+    text-align: center;
+    background-color: #B7C8CB;
+    padding: 0.1rem;
+    border: 1px solid black;
+    border-radius:  30px;  
+    padding: 1rem;
+    list-style: none;
+}
+
+#addButton {
+    border-radius: 30px;
+    background-color: rgb(85, 120, 85);
+    color: #B7C8CB;
+    border: none;
+    padding: 0.20rem;
+    margin: 0.5rem;
+
+}
+
+#addButton:hover {
+    background-color: rgb(110, 176, 110);
+}
+
+
+#cleanButton {
+    border-radius: 30px;
+    background-color: rgb(177, 104, 104);
+    border: none;
+    padding: 0.3rem;
+    margin: 0.5rem;
+    
+}
+
+#cleanButton:hover {
+    background-color:  rgb(188, 73, 73); 
+}
+
