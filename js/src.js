@@ -58,6 +58,7 @@ function printTasks() {
 
     for (let i = 0; i < taskObj.length; i++) {
       const li = document.createElement("li");
+      li.classList.add("task");
       li.classList.add("toDo");
 
       if (taskObj[i].complete) {
