@@ -10,6 +10,8 @@ const taskList = document.querySelector("#taskList > ul");
 let tasks = [];
 if (JSON.parse(localStorage.getItem("tareas"))) {
   tasks = JSON.parse(localStorage.getItem("tareas"));
+} else {
+  localStorage.setItem("tareas", JSON.stringify(tasks));
 }
 
 printTasks();
