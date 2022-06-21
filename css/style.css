@@ -33,24 +33,24 @@ h2{
 }
 
 #input {
-    width: 250px;
+    width: 25rem;
     font-family:'Teko', sans-serif;
-    font-size: 25px;
+    font-size: 2rem;
     font-weight: 550;
     letter-spacing: 0.2px;
-    text-transform:capitalize;
     border-radius: 30px;
     border-style: none;
     outline:#4C5175;
-    padding: 0.20rem;
+    padding: 0.5rem;
+    margin: 1rem;
 }
 
 #label {
-    width: 90px;
-    height: 40px;
+    width: 100px;
+    height: 50px;
     border-style: none;
     font-family:'Teko', sans-serif;
-    font-size: 25px;
+    font-size: 2rem;
     font-weight: 550;
     letter-spacing: 0.2px;
     text-align: center;
@@ -66,7 +66,7 @@ ul {
     flex-direction: column; 
     text-align: center;
     gap: 1rem;
-    font-size: 30px;
+    font-size: 2rem;
     font-weight: 550;
     letter-spacing: 0.5px;
     text-align: center;
@@ -130,8 +130,9 @@ li.task {
 }
 
 #prioridad {
-    font-size: 30px;
+    font-size: 2.5rem;
     font-weight: 550;
     letter-spacing: 0.5px;
+    margin: 0.5rem;
 }
 
