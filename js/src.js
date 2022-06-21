@@ -5,7 +5,7 @@ import { Task } from "./taskClass.js";
 const forms = document.forms.taskForm;
 const inputTask = forms.elements.task;
 const taskPriority = forms.priority;
-const taskList = document.querySelector("#taskList > ul");
+const taskList = document.querySelector("#taskList > div");
 
 let tasks = [];
 if (JSON.parse(localStorage.getItem("tareas"))) {
@@ -49,12 +49,14 @@ function printTasks() {
   const taskObj = JSON.parse(localStorage.getItem("tareas"));
   const objFra = document.createDocumentFragment();
   const button = document.createElement("button");
+  const ul = document.createElement("ul");
 
   button.setAttribute("id", "cleanButton");
-  button.innerHTML = `Limpiar`;
+  button.innerHTML = `<img src="./multimedia/cleanButton.png" alt="Imagen Papelera">`;
+  /*   button.innerHTML = `Limpiar`; */
 
   if (taskObj && taskObj.length >= 0) {
-    clearList("#taskList > ul");
+    clearList("#taskList > div");
 
     for (let i = 0; i < taskObj.length; i++) {
       const li = document.createElement("li");
@@ -70,21 +72,22 @@ function printTasks() {
       }
 
       li.setAttribute("id", i);
-      li.innerHTML = `${taskObj[i].name}. Prioridad ${taskObj[i].priority}. Añadido el dia ${taskObj[i].date}`;
+      li.innerHTML = `<span>Tarea: ${taskObj[i].name}.</span> <span>Prioridad: ${taskObj[i].priority}.</span> <span>Añadido el dia ${taskObj[i].date}.</span>`;
 
       if (taskObj[i].complete) {
         li.style.textDecoration = "line-through";
       }
       objFra.append(li);
     }
-    objFra.append(button);
   }
 
+  
+  ul.append(objFra);
+  taskList.append(ul);
+  taskList.append(button);
   if (taskObj.length === 0) {
     button.remove();
   }
-
-  taskList.append(objFra);
 }
 
 function clearList(elementSelector) {
@@ -93,11 +96,15 @@ function clearList(elementSelector) {
 }
 
 function handleCrossTask() {
-  if (event.target.matches("li.toDo") || event.target.matches("li.done")) {
-    const completedTask = event.target;
+  console.log(event.target);
+  if (
+    event.target.matches(".toDo span") ||
+    event.target.matches(".done span")
+  ) {
+    const completedTask = event.target.parentElement;
 
     tasks[completedTask.id].complete = !tasks[completedTask.id].complete;
-    console.log(event.target);
+    console.log(completedTask);
     console.log(tasks[completedTask.id].complete);
 
     saveLocalStorage(tasks);
@@ -107,7 +114,10 @@ function handleCrossTask() {
 }
 
 function handleDeleteButton() {
-  if (event.target.matches("ul #cleanButton")) {
+  if (
+    event.target.matches(" #cleanButton") ||
+    event.target.matches(" #cleanButton img")
+  ) {
     const filteredTasks = tasks.filter((key) => key.complete === false);
 
     tasks = filteredTasks;
