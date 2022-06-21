@@ -15,25 +15,27 @@ body {
     font-family:'Teko', sans-serif;
     color: #4C5175;
     background-color: #B7C8CB; 
+    background-image: url("./../multimedia/fondo-tareas.jpg")
 }
 
 h1{
-    font-size: 40px;
+    font-size: 100px;
     font-weight: 700;
     letter-spacing: 1px;
     text-align: center;
 }
 
 h2{
-    font-size: 20px;
+    font-size: 50px;
     font-weight: 600;
-    letter-spacing: 0.5px;
-    text-align: center;
+    letter-spacing: 0.9px;
+    text-align: center; 
 }
 
 #input {
+    width: 250px;
     font-family:'Teko', sans-serif;
-    font-size: 16px;
+    font-size: 25px;
     font-weight: 550;
     letter-spacing: 0.2px;
     text-transform:capitalize;
@@ -44,9 +46,11 @@ h2{
 }
 
 #label {
+    width: 90px;
+    height: 40px;
     border-style: none;
     font-family:'Teko', sans-serif;
-    font-size: 18px;
+    font-size: 25px;
     font-weight: 550;
     letter-spacing: 0.2px;
     text-align: center;
@@ -56,20 +60,46 @@ h2{
 }
 
 ul {
-    font-size: 13px;
-    font-weight: 550;
-    letter-spacing: 0.2px;
+    
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column; 
     text-align: center;
-    background-color: #B7C8CB;
+    gap: 1rem;
+    font-size: 30px;
+    font-weight: 550;
+    letter-spacing: 0.5px;
+    text-align: center;
     padding: 0.1rem;
     border: 1px solid black;
     border-radius:  30px;  
     padding: 1rem;
     list-style: none;
+    background-image: ("./../multimedia/corcho.jpg");
+}
+
+li.task {
+    border: 1px solid black;
+    padding: 0.5rem;
+    border-radius: 30px;
+    
+    
+}
+
+.done{
+    background-color: rgb(168, 163, 163);
+    
+}
+
+.toDo{
+    background-color: rgb(161, 219, 161);
+    border-radius: 30px;
 }
 
 #addButton {
-    border-radius: 30px;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
     background-color: rgb(85, 120, 85);
     color: #B7C8CB;
     border: none;
@@ -84,6 +114,9 @@ ul {
 
 
 #cleanButton {
+    align-self: center;
+    width: 90px;
+    height: 35px;
     border-radius: 30px;
     background-color: rgb(177, 104, 104);
     border: none;
@@ -94,5 +127,11 @@ ul {
 
 #cleanButton:hover {
     background-color:  rgb(188, 73, 73); 
+}
+
+#prioridad {
+    font-size: 30px;
+    font-weight: 550;
+    letter-spacing: 0.5px;
 }
 
