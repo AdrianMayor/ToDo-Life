@@ -51,7 +51,8 @@ function printTasks() {
   const button = document.createElement("button");
 
   button.setAttribute("id", "cleanButton");
-  button.innerHTML = `Limpiar`;
+  button.innerHTML = `<img src="./multimedia/cleanButton.png" alt="Imagen Papelera">`;
+  /*   button.innerHTML = `Limpiar`; */
 
   if (taskObj && taskObj.length >= 0) {
     clearList("#taskList > ul");
@@ -107,7 +108,10 @@ function handleCrossTask() {
 }
 
 function handleDeleteButton() {
-  if (event.target.matches("ul #cleanButton")) {
+  if (
+    event.target.matches("ul #cleanButton") ||
+    event.target.matches("ul #cleanButton img")
+  ) {
     const filteredTasks = tasks.filter((key) => key.complete === false);
 
     tasks = filteredTasks;
