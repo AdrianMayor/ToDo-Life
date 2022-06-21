@@ -72,7 +72,10 @@ function printTasks() {
       }
 
       li.setAttribute("id", i);
+
+
       li.innerHTML = `<span>Tarea: ${taskObj[i].name}.</span> <span>Prioridad: ${taskObj[i].priority}.</span> <span> ${taskObj[i].date}.</span>`;
+
 
       if (taskObj[i].complete) {
         li.style.textDecoration = "line-through";
@@ -81,12 +84,18 @@ function printTasks() {
     }
   }
 
-  if (taskObj.length === 0) {
-    button.remove();
-  }
+  
   ul.append(objFra);
   taskList.append(ul);
   taskList.append(button);
+ 
+
+  ul.append(objFra);
+  taskList.append(ul);
+  taskList.append(button);
+ if (taskObj.length === 0) {
+    button.remove();
+  }
 }
 
 function clearList(elementSelector) {

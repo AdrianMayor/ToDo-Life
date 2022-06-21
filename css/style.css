@@ -3,6 +3,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 
 }
 
@@ -62,8 +63,10 @@ h2{
 ul {
     
     display: flex;
+    justify-content: space-around;
     flex-wrap: wrap;
-    flex-direction: column; 
+    min-height: 50vh;
+    width: 70vw;
     text-align: center;
     gap: 1rem;
     font-size: 2rem;
@@ -75,15 +78,26 @@ ul {
     border-radius:  30px;  
     padding: 1rem;
     list-style: none;
-    background-image: ("./../multimedia/corcho.jpg");
+    background-image: url("./../multimedia/corcho.jpg");
 }
 
 li.task {
+    display: flex;
+    height: 200px;
+    width: 200px;
+    flex-direction: column;
     border: 1px solid black;
     padding: 0.5rem;
     border-radius: 30px;
+    cursor: pointer;
+  
     
-    
+}
+
+#taskList{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .done{
@@ -112,7 +126,7 @@ li.task {
     background-color: rgb(110, 176, 110);
 }
 
-
+#cleanButton > img{width: 25px;} 
 #cleanButton {
     align-self: center;
     width: 90px;
