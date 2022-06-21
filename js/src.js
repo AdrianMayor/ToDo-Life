@@ -1,6 +1,7 @@
 "use strict";
 
 import { Task } from "./taskClass.js";
+import { getDate, sortArray } from "./helpers.js";
 
 const forms = document.forms.taskForm;
 const inputTask = forms.elements.task;
@@ -22,15 +23,6 @@ function main() {
   taskList.addEventListener("click", handleDeleteButton);
 }
 
-function getDate() {
-  const today = new Date();
-
-  const date =
-    today.getDate() + "-" + (today.getMonth() + 1) + "-" + today.getFullYear();
-
-  return date;
-}
-
 function handleSubmitForm(e) {
   e.preventDefault();
 
@@ -46,7 +38,9 @@ function handleSubmitForm(e) {
 }
 
 function printTasks() {
-  const taskObj = JSON.parse(localStorage.getItem("tareas"));
+  let taskObj = JSON.parse(localStorage.getItem("tareas"));
+  //console.log(taskObj);
+
   const objFra = document.createDocumentFragment();
   const button = document.createElement("button");
   const ul = document.createElement("ul");
@@ -73,9 +67,7 @@ function printTasks() {
 
       li.setAttribute("id", i);
 
-
       li.innerHTML = `<span>Tarea: ${taskObj[i].name}.</span> <span>Prioridad: ${taskObj[i].priority}.</span> <span> ${taskObj[i].date}.</span>`;
-
 
       if (taskObj[i].complete) {
         li.style.textDecoration = "line-through";
@@ -84,16 +76,14 @@ function printTasks() {
     }
   }
 
-  
   ul.append(objFra);
   taskList.append(ul);
   taskList.append(button);
- 
 
   ul.append(objFra);
   taskList.append(ul);
   taskList.append(button);
- if (taskObj.length === 0) {
+  if (taskObj.length === 0) {
     button.remove();
   }
 }
@@ -104,7 +94,7 @@ function clearList(elementSelector) {
 }
 
 function handleCrossTask() {
-  console.log(event.target);
+  //console.log(event.target);
   if (
     event.target.matches(".toDo span") ||
     event.target.matches(".done span")
@@ -112,8 +102,8 @@ function handleCrossTask() {
     const completedTask = event.target.parentElement;
 
     tasks[completedTask.id].complete = !tasks[completedTask.id].complete;
-    console.log(completedTask);
-    console.log(tasks[completedTask.id].complete);
+    //console.log(completedTask);
+    //console.log(tasks[completedTask.id].complete);
 
     saveLocalStorage(tasks);
 
@@ -135,7 +125,7 @@ function handleDeleteButton() {
 }
 
 function saveLocalStorage(array) {
-  localStorage.setItem("tareas", JSON.stringify(array));
+  localStorage.setItem("tareas", JSON.stringify(array.sort(sortArray)));
 }
 
 main();

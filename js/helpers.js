@@ -9,4 +9,14 @@ function getDate() {
   return date;
 }
 
-export { getDate };
+function sortArray(x) {
+  if (x.complete) {
+    return 1;
+  }
+  if (!x.complete) {
+    return -1;
+  }
+  return 0;
+}
+
+export { getDate, sortArray };
