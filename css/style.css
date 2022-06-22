@@ -1,10 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Teko:wght@300&display=swap');
 
 *{
-    margin: 0;
+    margin: 0; 
     padding: 0;
     box-sizing: border-box;
-
 }
 
 
@@ -16,7 +15,7 @@ body {
     font-family:'Teko', sans-serif;
     color: #4C5175;
     background-color: #B7C8CB; 
-    background-image: url("./../multimedia/fondo-tareas.jpg")
+    background-image: url("./../multimedia/pared.jpg")
 }
 
 h1{
@@ -47,7 +46,7 @@ h2{
 }
 
 #label {
-    width: 100px;
+    width: 125px;
     height: 50px;
     border-style: none;
     font-family:'Teko', sans-serif;
@@ -56,8 +55,10 @@ h2{
     letter-spacing: 0.2px;
     text-align: center;
     border-radius: 15px;
+    cursor: pointer;
+    overflow: none;
+    outline: none;
    
-    
 }
 
 ul {
@@ -69,14 +70,14 @@ ul {
     width: 70vw;
     text-align: center;
     gap: 1rem;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 550;
     letter-spacing: 0.5px;
     text-align: center;
     padding: 0.1rem;
-    border: 1px solid black;
     border-radius:  30px;  
     padding: 1rem;
+    border: 0.2rem solid black;
     list-style: none;
     background-image: url("./../multimedia/corcho.jpg");
 }
@@ -86,12 +87,26 @@ li.task {
     height: 200px;
     width: 200px;
     flex-direction: column;
-    border: 1px solid black;
-    padding: 0.5rem;
+    padding: 1.5rem;
     border-radius: 30px;
     cursor: pointer;
-  
+
+ 
     
+}
+
+
+
+li span {
+    transform: rotateZ(-2deg);
+}
+
+li span:nth-child(3){
+    font-size: 1.2rem;
+} 
+
+li span:nth-child(2){
+    font-size: 1.5rem;
 }
 
 #taskList{
@@ -100,16 +115,33 @@ li.task {
     align-items: center;
 }
 
+#prioridad {
+    font-size: 2.5rem;
+    font-weight: 550;
+    letter-spacing: 0.5px;
+    margin: 0.5rem;
+}
+
+/*tarea hecha*/
 .done{
-    background-color: rgb(168, 163, 163);
+    background-image: url("./../multimedia/post-it-hecho.png");
+    height: 200px;
+    width: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*tarea para hacer*/
+.toDo{
+    background-image: url("./../multimedia/post-it.png");
+    height: 200px;
+    width: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
     
 }
 
-.toDo{
-    background-color: rgb(161, 219, 161);
-    border-radius: 30px;
-}
-
+/*boton añadir*/
 #addButton {
     width: 40px;
     height: 40px;
@@ -119,6 +151,7 @@ li.task {
     border: none;
     padding: 0.20rem;
     margin: 0.5rem;
+    cursor: pointer;
 
 }
 
@@ -126,16 +159,19 @@ li.task {
     background-color: rgb(110, 176, 110);
 }
 
+/*boton eliminar*/
+
 #cleanButton > img{width: 25px;} 
 #cleanButton {
     align-self: center;
-    width: 90px;
-    height: 35px;
+    width: 100px;
+    height: 50px;
     border-radius: 30px;
-    background-color: rgb(177, 104, 104);
+    background-color: rgb(219, 96, 96);
     border: none;
     padding: 0.3rem;
     margin: 0.5rem;
+    cursor: pointer;
     
 }
 
@@ -143,10 +179,5 @@ li.task {
     background-color:  rgb(188, 73, 73); 
 }
 
-#prioridad {
-    font-size: 2.5rem;
-    font-weight: 550;
-    letter-spacing: 0.5px;
-    margin: 0.5rem;
-}
+
 
