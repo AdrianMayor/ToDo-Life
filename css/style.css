@@ -6,7 +6,12 @@
     box-sizing: border-box;
 }
 
-
+header {
+    display: flex;
+    background-color:#638996; 
+    justify-content: space-around;
+    align-items: center;
+}
 
 body {
     display: flex;
@@ -18,6 +23,13 @@ body {
     background-image: url("./../multimedia/pared.jpg")
 }
 
+/*section*/
+#taskList{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 h1{
     font-size: 100px;
     font-weight: 700;
@@ -26,6 +38,7 @@ h1{
 }
 
 h2{
+    padding: 1rem;
     font-size: 50px;
     font-weight: 600;
     letter-spacing: 0.9px;
@@ -41,12 +54,14 @@ h2{
     border-radius: 30px;
     border-style: none;
     outline:#4C5175;
+    background-color: #e3ecee; 
     padding: 0.5rem;
     margin: 1rem;
 }
 
 #label {
     width: 125px;
+    background-color: #e3ecee; 
     height: 50px;
     border-style: none;
     font-family:'Teko', sans-serif;
@@ -62,7 +77,6 @@ h2{
 }
 
 ul {
-    
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -79,9 +93,10 @@ ul {
     padding: 1rem;
     border: 0.2rem solid black;
     list-style: none;
-    background-image: url("./../multimedia/corcho.jpg");
+    background-image: url("./../multimedia/corcho2.jpg");
 }
 
+/*post-it*/
 li.task {
     display: flex;
     height: 200px;
@@ -89,30 +104,23 @@ li.task {
     flex-direction: column;
     padding: 1.5rem;
     border-radius: 30px;
-    cursor: pointer;
-
- 
-    
+    cursor: pointer;   
 }
 
-
-
+/*texto dentro del post-it*/
 li span, li p {
     transform: rotateZ(-2deg);
 }
 
+/*prioridad*/
 li span:nth-child(2){
     font-size: 1.2rem;
 } 
 
-li span:nth-child(1){
-    font-size: 1.5rem;
-}
+/*fecha*/
 
-#taskList{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+li span:nth-child(3){
+    font-size: 1.2rem;
 }
 
 #prioridad {
@@ -124,12 +132,15 @@ li span:nth-child(1){
 
 /*tarea hecha*/
 .done{
-    background-image: url("./../multimedia/post-it-hecho.png");
+    background-image: url("./../multimedia/post-it.png");
     height: 200px;
     width: 200px;
     background-repeat: no-repeat;
     background-size: cover;
+    filter: grayscale();
+    transition: 0.4s ease-in-out;
 }
+
 
 /*tarea para hacer*/
 .toDo{
@@ -152,6 +163,7 @@ li span:nth-child(1){
     padding: 0.20rem;
     margin: 0.5rem;
     cursor: pointer;
+    font-size: 1.5rem;
 
 }
 
