@@ -67,7 +67,7 @@ function printTasks() {
 
       li.setAttribute("id", i);
 
-      li.innerHTML = `<span>${taskObj[i].name}.</span> <span>Prioridad: ${taskObj[i].priority}.</span> <span> ${taskObj[i].date}.</span>`;
+      li.innerHTML = `<p>${taskObj[i].name}.</p> <span>Prioridad: ${taskObj[i].priority}.</span> <span> ${taskObj[i].date}.</span>`;
 
       if (taskObj[i].complete) {
         li.style.textDecoration = "line-through";
