@@ -93,17 +93,33 @@ function clearList(elementSelector) {
   element.innerHTML = " ";
 }
 
-function handleCrossTask() {
+function handleCrossTask(event) {
   //console.log(event.target);
-  if (
+  /* 
     event.target.matches(".toDo span") ||
-    event.target.matches(".done span")
-  ) {
-    const completedTask = event.target.parentElement;
+    event.target.matches(".done span") ||
+    event.target.matches(".toDo p") ||
+    event.target.matches(".done p")
+  */
+  if (event.target.matches("li")) {
+    const completedTask = event.target;
 
     tasks[completedTask.id].complete = !tasks[completedTask.id].complete;
     //console.log(completedTask);
     //console.log(tasks[completedTask.id].complete);
+
+    saveLocalStorage(tasks);
+
+    printTasks();
+  } else if (
+    event.target.matches(".toDo span") ||
+    event.target.matches(".done span") ||
+    event.target.matches(".toDo p") ||
+    event.target.matches(".done p")
+  ) {
+    const completedTask = event.target.parentElement;
+
+    tasks[completedTask.id].complete = !tasks[completedTask.id].complete;
 
     saveLocalStorage(tasks);
 
