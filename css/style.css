@@ -97,15 +97,15 @@ li.task {
 
 
 
-li span {
+li span, li p {
     transform: rotateZ(-2deg);
 }
 
-li span:nth-child(3){
+li span:nth-child(2){
     font-size: 1.2rem;
 } 
 
-li span:nth-child(2){
+li span:nth-child(1){
     font-size: 1.5rem;
 }
 
