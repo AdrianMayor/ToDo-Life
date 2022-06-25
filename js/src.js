@@ -79,10 +79,6 @@ function printTasks() {
   ul.append(objFra);
   taskList.append(ul);
   taskList.append(button);
-
-  ul.append(objFra);
-  taskList.append(ul);
-  taskList.append(button);
   if (taskObj.length === 0) {
     button.remove();
   }
